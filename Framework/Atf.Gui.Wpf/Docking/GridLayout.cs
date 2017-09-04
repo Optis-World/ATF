@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Xml.Serialization;
 using System.Xml;
+using System.Windows.Automation.Peers;
 
 namespace Sce.Atf.Wpf.Docking
 {
@@ -721,6 +722,14 @@ namespace Sce.Atf.Wpf.Docking
             writer.WriteEndElement();
         }
 
-        #endregion
-    }
+		#endregion
+
+		#region Automation
+		protected override AutomationPeer OnCreateAutomationPeer()
+		{
+			return new Automation.GridLayoutAutomationPeer(this);
+		}
+
+		#endregion
+	}
 }

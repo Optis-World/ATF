@@ -14,6 +14,7 @@ using System.Runtime.CompilerServices;
 using System.Timers;
 using System.Threading;
 using Sce.Atf;
+using System.Windows.Automation.Peers;
 
 namespace Sce.Atf.Wpf.Docking
 {
@@ -640,8 +641,17 @@ namespace Sce.Atf.Wpf.Docking
         /// <summary>
         /// Property value changed event</summary>
         public event PropertyChangedEventHandler PropertyChanged;
-        #pragma warning restore 0067
+#pragma warning restore 0067
 
-        #endregion
-    }
+		#endregion
+
+		#region Automation
+
+		protected override AutomationPeer OnCreateAutomationPeer()
+		{
+			return new Automation.TabLayoutAutomationPeer(this);
+		}
+		#endregion
+
+	}
 }
