@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Drawing;
+using System.Linq;
 using System.Xml;
 
 using Sce.Atf.Controls.PropertyEditing;
@@ -547,7 +548,7 @@ namespace Sce.Atf.Applications
 
             m_commandsById[info.CommandTag] = info;
 
-            foreach (Keys k in info.Shortcuts)
+            foreach (Keys k in info.Shortcuts.ToArray())
                 SetShortcut(k, info);
 
             #if TEST_COMMAND_SORTING
