@@ -548,7 +548,8 @@ namespace Sce.Atf.Applications
 
             m_commandsById[info.CommandTag] = info;
 
-            foreach (Keys k in info.Shortcuts.ToArray())
+            var shortcuts = info.Shortcuts.ToArray();
+            foreach (Keys k in shortcuts)
                 SetShortcut(k, info);
 
             #if TEST_COMMAND_SORTING
