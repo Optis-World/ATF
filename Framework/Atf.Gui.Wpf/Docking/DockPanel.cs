@@ -848,8 +848,15 @@ namespace Sce.Atf.Wpf.Docking
                 wnd.Closing += ChildWindowClosing;
                 m_windows.Add(wnd);
                 wnd.Owner = Window.GetWindow(this);
-                wnd.Show();
-                wnd.DragMove();
+                try
+                {
+                    wnd.Show();
+                    wnd.DragMove();
+                }
+                catch (InvalidOperationException)
+                {
+                    // Do nothing
+                }
             }
         }
         /// <summary>

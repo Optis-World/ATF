@@ -657,10 +657,12 @@ namespace Sce.Atf.Wpf.Docking
         #endregion
 
         #region Automation
+
         protected override AutomationPeer OnCreateAutomationPeer()
         {
             return new DockedWindowAutomationPeer(this);
         }
+
         #endregion
     }
 }

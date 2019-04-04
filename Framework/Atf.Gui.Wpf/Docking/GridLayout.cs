@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Controls;
 using System.Windows;
 using System.Xml.Serialization;
@@ -620,7 +621,7 @@ namespace Sce.Atf.Wpf.Docking
                             RowDefinitions.Add(NewRowDefinition(new GridLength(1, GridUnitType.Star), m_minGridSize.Height));
                             do
                             {
-                                double width = double.Parse(reader.GetAttribute("Width"));
+                                double width = double.Parse(reader.GetAttribute("Width"), CultureInfo.InvariantCulture);
                                 IDockLayout layout = null;
                                 reader.ReadStartElement();
                                 if (reader.LocalName == typeof(DockedWindow).Name)
@@ -655,7 +656,7 @@ namespace Sce.Atf.Wpf.Docking
                             ColumnDefinitions.Add(NewColumnDefinition(new GridLength(1, GridUnitType.Star), m_minGridSize.Width));
                             do
                             {
-                                double height = double.Parse(reader.GetAttribute("Height"));
+                                double height = double.Parse(reader.GetAttribute("Height"), CultureInfo.InvariantCulture);
                                 IDockLayout layout = null;
                                 reader.ReadStartElement();
                                 if (reader.LocalName == typeof(DockedWindow).Name)
@@ -722,14 +723,15 @@ namespace Sce.Atf.Wpf.Docking
             writer.WriteEndElement();
         }
 
-		#endregion
+        #endregion
 
-		#region Automation
-		protected override AutomationPeer OnCreateAutomationPeer()
-		{
-			return new Automation.GridLayoutAutomationPeer(this);
-		}
+        #region Automation
 
-		#endregion
-	}
+        protected override AutomationPeer OnCreateAutomationPeer()
+        {
+            return new Automation.GridLayoutAutomationPeer(this);
+        }
+
+        #endregion
+    }
 }
