@@ -10,19 +10,20 @@
     xmlns:pe="clr-namespace:Sce.Atf.Wpf.Controls.PropertyEditing" 
     xmlns:atf="clr-namespace:Sce.Atf.Wpf.Behaviors"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:models="clr-namespace:Sce.Atf.Wpf.Models"
     mc:Ignorable="d"
     ResizeMode="CanResizeWithGrip"
     ShowInTaskbar="False"
     WindowStartupLocation="CenterOwner"
     Height="400" Width="640"
     MinHeight="200" MinWidth="320"
-    d:DesignHeight="320" d:DesignWidth="480">
+    d:DesignHeight="320" d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance models:DialogViewModelBase, IsDesignTimeCreatable=True}">
 
     <Grid>
         <Grid.Resources>
             <Style x:Key="HiddenToolBarStyle" TargetType="{x:Type pe:PropertyGridToolBar}">
                 <Setter Property="Visibility" Value="Collapsed"/>
-                <Setter Property="IsCategorized" Value="True"/>
             </Style>
             <HierarchicalDataTemplate x:Key="TreeViewItemTemplate" ItemsSource="{Binding Children}">
                 <Border BorderBrush="{x:Null}" Height="20">
@@ -62,8 +63,10 @@
             <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent"/>
 
             <Border Grid.Column="2" Padding="0" BorderThickness="0" CornerRadius="3">
-                <pe:PropertyGrid Instances="{Binding Items}" CustomPropertyDescriptors="{Binding PropertyDescriptors}" 
-                                 Grouping="{x:Static pe:DefaultPropertyGrouping.None}"
+                <pe:PropertyGrid Instances="{Binding Items}" 
+                                 CustomPropertyDescriptors="{Binding PropertyDescriptors}" 
+                                 Grouping="{Binding Grouping, RelativeSource={RelativeSource AncestorType={x:Type c:SettingsDialog}}, Mode=OneWay}"
+                                 Sorting="{Binding Sorting, RelativeSource={RelativeSource AncestorType={x:Type c:SettingsDialog}}, Mode=OneWay}"
                                  Padding="2,8,2,2"
                                  ToolBarStyle="{StaticResource HiddenToolBarStyle}"/>
             </Border>

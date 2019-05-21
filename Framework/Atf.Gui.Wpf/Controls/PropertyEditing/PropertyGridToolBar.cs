@@ -48,12 +48,11 @@ namespace Sce.Atf.Wpf.Controls.PropertyEditing
         /// PropertyGridToolBar's Properties dependency property</summary>
         public static readonly DependencyProperty PropertiesProperty =
             DependencyProperty.Register("Properties", typeof(IEnumerable), typeof(PropertyGridToolBar),
-            new FrameworkPropertyMetadata(PropertiesProperty_Changed));
+                                        new FrameworkPropertyMetadata(PropertiesProperty_Changed));
 
         private static void PropertiesProperty_Changed(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {
-            var tb = o as PropertyGridToolBar;
-            if (tb != null && tb.Properties != null)
+            if (o is PropertyGridToolBar tb && tb.IsVisible && tb.Properties != null)
             {
                 if (tb.IsCategorized)
                 {
