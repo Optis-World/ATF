@@ -44,7 +44,7 @@ namespace Sce.Atf.Wpf.Applications
                                 this,
                                 () => CurrentSkin,
                                 "Theme".Localize(),
-                                "Theme".Localize(),
+                                string.Empty,
                                 "Theme".Localize(),
                                 new ThemesValueEditor(this),
                                 null),

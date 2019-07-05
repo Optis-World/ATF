@@ -139,7 +139,7 @@ namespace Sce.Atf.Wpf.Applications
             if(m_settingsService != null && EnableContextHelpUserSetting)
             {
                 m_settingsService.RegisterUserSettings("Help".Localize(), 
-                   new BoundPropertyDescriptor(this, () => ShowContextHelp, "Show Context Help".Localize(), "Help".Localize(), "Uncheck this to hide help commands in context menus".Localize()));
+                   new BoundPropertyDescriptor(this, () => ShowContextHelp, "Show Context Help".Localize(), string.Empty, "Uncheck this to hide help commands in context menus".Localize()));
             }
         }
 
