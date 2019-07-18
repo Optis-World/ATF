@@ -63,12 +63,13 @@
             <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent"/>
 
             <Border Grid.Column="2" Padding="0" BorderThickness="0" CornerRadius="3">
-                <pe:PropertyGrid Instances="{Binding Items}" 
-                                 CustomPropertyDescriptors="{Binding PropertyDescriptors}" 
+                <pe:PropertyGrid x:Name="PropertyGrid"
+                                 Instances="{Binding Items}"
+                                 CustomPropertyDescriptors="{Binding PropertyDescriptors}"
                                  Grouping="{Binding Grouping, RelativeSource={RelativeSource AncestorType={x:Type c:SettingsDialog}}, Mode=OneWay}"
                                  Sorting="{Binding Sorting, RelativeSource={RelativeSource AncestorType={x:Type c:SettingsDialog}}, Mode=OneWay}"
                                  Padding="2,8,2,2"
-                                 ToolBarStyle="{StaticResource HiddenToolBarStyle}"/>
+                                 ToolBarStyle="{StaticResource HiddenToolBarStyle}" />
             </Border>
         </Grid>
 

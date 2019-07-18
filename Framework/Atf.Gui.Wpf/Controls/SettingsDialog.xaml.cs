@@ -28,6 +28,18 @@ namespace Sce.Atf.Wpf.Controls
 
         #endregion
 
+        #region Refresh Property
+
+        /// <summary>
+        ///    Refresh setting view.
+        /// </summary>
+        public void Refresh()
+        {
+            PropertyGrid.Rebuild();
+        }
+
+        #endregion
+
         #region Sorting Property
 
         /// <summary>
@@ -42,9 +54,7 @@ namespace Sce.Atf.Wpf.Controls
         /// <summary>
         ///     PropertyGrid's Sorting dependency property
         /// </summary>
-        public static readonly DependencyProperty SortingProperty = DependencyProperty.Register(nameof(Sorting),
-                                                                                                typeof(IComparer),
-                                                                                                typeof(SettingsDialog));
+        public static readonly DependencyProperty SortingProperty = DependencyProperty.Register(nameof(Sorting), typeof(IComparer), typeof(SettingsDialog));
 
         #endregion
 
@@ -62,11 +72,8 @@ namespace Sce.Atf.Wpf.Controls
         /// <summary>
         ///     PropertyGrid's Grouping dependency property
         /// </summary>
-        public static readonly DependencyProperty GroupingProperty = DependencyProperty.Register(nameof(Grouping),
-                                                                                                 typeof(GroupDescription),
-                                                                                                 typeof(SettingsDialog),
-                                                                                                 new FrameworkPropertyMetadata(DefaultPropertyGrouping.None));
-        
+        public static readonly DependencyProperty GroupingProperty = DependencyProperty.Register(nameof(Grouping), typeof(GroupDescription), typeof(SettingsDialog), new FrameworkPropertyMetadata(DefaultPropertyGrouping.None));
+
         #endregion
-    }    
+    }
 }

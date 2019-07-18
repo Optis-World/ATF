@@ -611,6 +611,14 @@ namespace Sce.Atf.Wpf.Controls.PropertyEditing
             }
         }
 
+        /// <summary>
+        ///     Rebuild nodes to refresh the view.
+        /// </summary>
+        public void Rebuild()
+        {
+            RebuildPropertyNodes();
+        }
+
         private void DestroyPropertyNode(PropertyNode node)
         {
             node.ValueSet -= node_ValueSet;
@@ -824,7 +832,7 @@ namespace Sce.Atf.Wpf.Controls.PropertyEditing
                 m_disposed = true;
             }
         }
-
+        
         /// <summary>
         /// Disposes of resources</summary>
         public void Dispose()
