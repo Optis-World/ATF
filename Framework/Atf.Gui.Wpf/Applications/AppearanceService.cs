@@ -1,4 +1,5 @@
 ﻿//Copyright © 2014 Sony Computer Entertainment America LLC. See License.txt.
+//Modified file in context of repo fork : https://github.com/Optis-World/ATF
 
 using System;
 using System.Collections.Generic;

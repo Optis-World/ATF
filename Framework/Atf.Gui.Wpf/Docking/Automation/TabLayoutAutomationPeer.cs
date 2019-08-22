@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿//Modified file in context of repo fork : https://github.com/Optis-World/ATF
+
+using System.Windows;
 using System.Windows.Automation.Peers;
 
 namespace Sce.Atf.Wpf.Docking.Automation
